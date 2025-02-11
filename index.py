@@ -5,6 +5,8 @@ from langchain.prompts import PromptTemplate
 from src import agent
 import os
 
+# Power by DeepSeek R1
+
 # 定义 PromptTemplate
 common_prompt_template = PromptTemplate(
     input_variables=["system_prompt", "user_prompt"],
@@ -77,21 +79,21 @@ def main():
                     common_prompt_template,
                     {'system_prompt': grammar_prompt, 'user_prompt': user_prompt_content}
                 )
-                progress_bar.progress(25)
+                progress_bar.progress(25, "LLM is answering ...")
                 
                 # Vocab Suggestion
                 st.session_state.corrections['vocab'] = process_with_llm(
                     common_prompt_template,
                     {'system_prompt': vocab_prompt, 'user_prompt': content}
                 )
-                progress_bar.progress(75)
+                progress_bar.progress(75, "LLM is answering ...")
                 
                 # Evaluation
                 st.session_state.corrections['evaluation'] = process_with_llm(
                     common_prompt_template,
                     {'system_prompt': eval_prompt, 'user_prompt': user_prompt_content}
                 )
-                progress_bar.progress(100)
+                progress_bar.progress(100, "LLM is answering ...")
                 
                 # 显示结果
                 with st.expander("Grammar Correction", expanded=True):
