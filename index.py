@@ -71,6 +71,9 @@ def main():
                 with open("prompts/Evaluation.txt", "r") as e:
                     eval_prompt = e.read()
                 
+                with open("prompts/Rewrite.txt", "r") as r:
+                    rewrite_prompt = r.read()
+
                 # 构建user_prompt内容
                 user_prompt_content = f"question: {question}\ncontent: {content}"
                 
@@ -86,12 +89,19 @@ def main():
                     common_prompt_template,
                     {'system_prompt': vocab_prompt, 'user_prompt': content}
                 )
-                progress_bar.progress(75, "LLM is answering ...")
+                progress_bar.progress(50, "LLM is answering ...")
                 
                 # Evaluation
                 st.session_state.corrections['evaluation'] = process_with_llm(
                     common_prompt_template,
                     {'system_prompt': eval_prompt, 'user_prompt': user_prompt_content}
+                )
+                progress_bar.progress(75, "LLM is answering ...")
+
+                # Rewrite
+                st.session_state.corrections['rewrite'] = process_with_llm(
+                    common_prompt_template,
+                    {'system_prompt': rewrite_prompt, 'user_prompt': user_prompt_content}
                 )
                 progress_bar.progress(100, "LLM is answering ...")
                 
@@ -104,6 +114,9 @@ def main():
                 
                 with st.expander("Evaluation", expanded=True):
                     st.markdown(st.session_state.corrections['evaluation'])
+
+                with st.expander("Rewritten Writing", expanded=True):
+                    st.markdown(st.session_state.corrections['rewrite'])
                 
                 # 导出数据
                 data_content = f"Grammar Corrections:\n{st.session_state.corrections['grammar']}\n\nVocabulary Suggestions:\n{st.session_state.corrections['vocab']}\n\nEvaluation:\n{st.session_state.corrections['evaluation']}"
