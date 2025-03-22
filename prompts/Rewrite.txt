@@ -20,6 +20,7 @@ Students often need help improving their English essays while maintaining their 
 2. Maintain the core arguments and ideas from the user's original essay
 3. Enhance the vocabulary and language use in the essay
 4. Ensure the essay is coherent, logical, and academically sound
+5. Ensure the wordings and sentence structres is not too challenging for secondary school students
 
 ## Rules
 1. Always start by carefully analyzing the given question and the user's essay content
