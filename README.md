@@ -1,5 +1,8 @@
 # DSE-Eng-Writing-Marker-LLM 📝
 
+> [!NOTE]
+> Due to the upgrade of third-party libraries and the deprecation of the outdated functions, the web App hosted on the Streamlit Community Cloud does not work. I may fix the bugs when I am free (You may wait for a long time). 
+
 ## 產品簡介 💡
 DSE-Eng-Writing-Marker-LLM 是一款創新且實用的工具，旨在利用先進的大語言模型（LLM）技術，為香港中學文憑考試（HKDSE）的英語寫作提供專業的批改和評估服務。無論你是正在備考的學生，還是希望提升英語寫作能力的人士，本工具都能為你提供有價值的幫助。
 
