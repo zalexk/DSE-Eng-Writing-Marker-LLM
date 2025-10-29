@@ -1,6 +1,7 @@
 streamlit
 langchain==0.3.27
-langchain-core
-langchain-community
+langchain-core==0.3.79
+langchain-community==0.3.31
 
 langchain-openai
+
